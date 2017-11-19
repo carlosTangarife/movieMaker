@@ -1,0 +1,62 @@
+<div *ngIf="autenticationService.afAuth.authState | async; let user; else showLogin">
+  <h1></h1>
+  <div class="jumbotron">
+    <h1 class="display-3">{{'hello' | translate}} {{ user.displayName }}!</h1>
+    <p class="lead">{{'welcome' | translate}}</p>
+    <hr class="my-4">
+    <p>{{'redirect' | translate}}</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" role="button" [routerLink]="['/home']">{{'go' | translate }}</a>
+    </p>
+  </div>
+</div>
+
+<ng-template #showLogin>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-5 mx-auto">
+              <span class="anchor" id="formLogin"></span>
+
+              <!-- form card login -->
+              <div class="card rounded-0">
+                <div class="card-header">
+                  <h3 class="mb-0">{{'logIn' | translate}} TO MoviCorner</h3>
+                </div>
+                <div class="card-body">
+                  <form class="form" role="form">
+                    <div class="form-group">
+                      <img alt="" class="img-login" src="../../../assets/img/video.png">
+                    </div>
+
+                    <div class="form-group ">
+                      <img class="img-social-media" src="../../../assets/img/google.png" alt="">
+                      <button class="btn btn-outline-secondary btn-lg" (click)="autenticationService.login('google')">{{'loginWith' | translate}} Google</button>
+                    </div>
+
+                    <div class="form-group">
+                        <img class="img-social-media" src="../../../assets/img/twitter.png" alt="">
+                        <button class="btn btn-outline-primary btn-lg" (click)="autenticationService.login('twitter')">{{'loginWith' | translate}} Twitter</button>
+                    </div>
+
+                  </form>
+                </div>
+                <!--/card-block-->
+              </div>
+              <!-- /form card login -->
+
+            </div>
+
+
+          </div>
+          <!--/row-->
+
+        </div>
+        <!--/col-->
+      </div>
+      <!--/row-->
+    </div>
+    <!--/container-->
+
+</ng-template>
