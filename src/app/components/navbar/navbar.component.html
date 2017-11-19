@@ -1,0 +1,36 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse bg-faded">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" [routerLink]="['home']">
+    <img src="../../../assets/img/video.png" width="30" height="30" alt="">MovieCorner
+  </a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" *ngIf="autenticationService.afAuth.authState | async">
+        <a class="nav-link" [routerLink]="['home']" >{{'home'| translate}}</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="autenticationService.afAuth.authState | async">
+        <a class="nav-link" [routerLink]="['search']">{{'search'| translate}}</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="autenticationService.afAuth.authState | async">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{'language' | translate}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="changeLanguage('en')">{{'english' | translate}}</a>
+          <a class="dropdown-item"(click)="changeLanguage('es')">{{'spanish' | translate}}</a>
+        </div>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="!autenticationService.afAuth.authState | async">
+        <a class="nav-link" [routerLink]="['login']">{{'logIn'| translate}}</a>
+      </li>
+
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" *ngIf="autenticationService.afAuth.authState | async" (click)="autenticationService.logout()">{{'logOut' | translate}}</button>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchMovie(search.value)" *ngIf="autenticationService.afAuth.authState | async">
+      <input #search class="form-control mr-sm-2" type="text" placeholder="{{'search' | translate}}..." aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{'search' | translate}}</button>
+    </form>
+  </div>
+</nav>
