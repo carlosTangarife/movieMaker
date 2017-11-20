@@ -25,7 +25,8 @@
       "scripts": [
         "assets/jquery/jquery.slim.min.js",
         "assets/tether/tether.min.js",
-        "assets/b4/js/bootstrap.min.js"
+        "assets/b4/js/bootstrap.min.js",
+        "../node_modules/chart.js/dist/Chart.bundle.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

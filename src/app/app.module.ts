@@ -8,6 +8,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './../environments/environment';
 import { DisqusModule } from 'ngx-disqus';
+import { ChartsModule } from 'ng2-charts';
 
 import { TRANSLATION_PROVIDERS, TranslateService, TranslatePipe } from './translate';
 import { AutenticationService } from './services/autentication.service';
@@ -50,7 +51,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     APP_ROUTING,
     JsonpModule,
     HttpModule,
-    DisqusModule.forRoot('MovieCorner')
+    DisqusModule.forRoot('MovieCorner'),
+    ChartsModule
   ],
   providers: [TRANSLATION_PROVIDERS, TranslateService, MovieService, AutenticationService, GuardService],
   bootstrap: [AppComponent]
