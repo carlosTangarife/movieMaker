@@ -17,11 +17,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchMovie(texto: string) {
-    if ( texto.length === 0 ) {
+  searchMovie(text: string) {
+    if ( text.length === 0 ) {
       return;
     }
-    this._router.navigate(['search', texto]);
+    this._router.navigate(['search', text]);
   }
 
   changeLanguage(lang: string) {
