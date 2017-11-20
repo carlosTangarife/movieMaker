@@ -8,19 +8,29 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
-  public search: string;
+  public lookingFor: string;
   public movie: any;
   public returnTo: string;
+  public movieId: string;
+  public identifier: string;
 
   constructor(public _ps: MovieService, public route: ActivatedRoute) {
     this.route.params.subscribe(params => {
-
+      this.movieId = params['id'];
       this.returnTo = params['pag'];
+      this.identifier = '/movie/' + this.movieId;
 
-      if (params['search']) {
-        this.movie = params['search'];
+      if (params['lookingFor']) {
+        this.lookingFor = params['lookingFor'];
       }
-      this._ps.getMovie(params['id']).subscribe( (movie) => this.movie = movie );
+      this._ps.getMovie(this.movieId).subscribe(
+        (movie) => {
+          this.movie = movie;
+        },
+        (error: Error) => {
+          console.log('error', error);
+        }
+      );
     });
   }
 
