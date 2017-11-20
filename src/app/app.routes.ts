@@ -10,13 +10,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const ROUTES: Routes = [
-  {
-    path: 'login',
-    component: LoginComponent
-  },
+
   { path: 'home',
     component: HomeComponent,
     canActivate: [GuardService]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   { path: 'search',
     component: SearchComponent,
