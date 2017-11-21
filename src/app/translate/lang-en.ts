@@ -25,5 +25,7 @@ export const LANG_EN_TRANS = {
     'welcome': 'Welcome to MovieCorner, here you can find all the information of your favorite movies.',
     'redirect': 'click here, to go to the main page',
     'go': 'Go!',
-    'notFound': 'Not Found'
+    'notFound': 'Not Found',
+    'watchTrailer': 'Watch Trailer',
+    'celebratePhrase': 'Celebrate Phrase'
 };
